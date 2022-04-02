@@ -1,3 +1,6 @@
+name = input("What's your name?")
+age = input("What's your age?")
+
 # formatted string
-print(f"I am {input('How old are you?')} years old.")
-print(f"Your name is {input('What is your name?')}.")
+print(f"I am {age} years old.")
+print(f"Your name is {name}.")
