@@ -7,4 +7,8 @@ input_password = input("Password?")
 if username == input_username and password == input_password:
     print(f"You are logged in {username}")
 else:
-    print("Username or Password was incorrect")
+    if username != input_username:
+        print("Username was wrong. Try again!")
+
+    if password != input_password:
+        print("Password was wrong. Try again!")
