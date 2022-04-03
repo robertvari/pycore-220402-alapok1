@@ -14,12 +14,16 @@ assert os.path.isdir(photo_folder), "Egy könyvtárra van szükségem!"
 file_list = [os.path.join(photo_folder, file) for file in os.listdir(photo_folder)]
 
 # file_list = os.listdir(photo_folder)
-#
 # new_file_list = []
 # for file in file_list:
 #     new_file_list.append(os.path.join(photo_folder, file))
 
 # todo filter file list
 allowed_extensions = [".jpg"]
-for item in file_list:
-    print(item)
+for file_item in file_list:
+    # skip folders
+    if os.path.isdir(file_item):
+        continue
+
+    # skip files if extension not in allowed_extensions
+    print(os.path.splitext(file_item))
