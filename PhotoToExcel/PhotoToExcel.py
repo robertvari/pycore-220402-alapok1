@@ -40,5 +40,7 @@ for photo in image_files:
     try:
         img = Image.open(photo)
         print(f"{photo} Size: {img.size}")
+
+
     except UnidentifiedImageError:
         print(f"WARNING: {photo} is not an image file :(")
