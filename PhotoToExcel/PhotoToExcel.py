@@ -10,4 +10,16 @@ assert os.path.exists(photo_folder), f"Könyvtár nem létezik: {photo_folder}"
 assert os.path.isdir(photo_folder), "Egy könyvtárra van szükségem!"
 
 # todo get photos from photo_folder and create a list from that
-print(os.listdir(photo_folder))
+# list comprehension
+file_list = [os.path.join(photo_folder, file) for file in os.listdir(photo_folder)]
+
+# file_list = os.listdir(photo_folder)
+#
+# new_file_list = []
+# for file in file_list:
+#     new_file_list.append(os.path.join(photo_folder, file))
+
+# todo filter file list
+allowed_extensions = [".jpg"]
+for item in file_list:
+    print(item)
