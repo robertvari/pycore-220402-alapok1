@@ -1,5 +1,5 @@
 import os
-from PIL import Image
+from PIL import Image, ExifTags
 from PIL import UnidentifiedImageError
 
 # r = raw string
@@ -44,8 +44,16 @@ for photo in image_files:
             "size": img.size,
             "date": None,
             "camera": None,
-            "iso": None
+            "iso": None,
         }
+
+        # get exif data
+        exif_data = img._getexif()
+
+        if exif_data:
+            data["date"] = exif_data.get(0x9003)
+            data["camera"] = exif_data.get(0x0110)
+            data["iso"] = exif_data.get(0x8827)
 
         photo_data[photo] = data
 
