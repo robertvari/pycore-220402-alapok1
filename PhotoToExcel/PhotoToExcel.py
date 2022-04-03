@@ -79,3 +79,31 @@ with open(json_file_path) as f:
 # todo save data to an xlsx file
 xlsx_file_path = "photo_data.xlsx"
 
+workbook = Workbook()
+sheet = workbook.active
+
+sheet["A1"] = "File Path"
+sheet.column_dimensions['A'].width = 80
+
+sheet["B1"] = "Date"
+sheet.column_dimensions['B'].width = 40
+
+sheet["C1"] = "Size"
+sheet.column_dimensions['C'].width = 40
+
+sheet["D1"] = "Camera"
+sheet.column_dimensions['D'].width = 40
+
+sheet["E1"] = "ISO"
+sheet.column_dimensions['E'].width = 40
+
+for index, root_key in enumerate(photo_data):
+    row = index + 3
+
+    sheet[f"A{row}"] = root_key
+    sheet[f"B{row}"] = photo_data[root_key]["date"]
+    sheet[f"C{row}"] = str(photo_data[root_key]["size"])
+    sheet[f"D{row}"] = photo_data[root_key]["camera"]
+    sheet[f"E{row}"] = photo_data[root_key]["iso"]
+
+workbook.save(xlsx_file_path)
