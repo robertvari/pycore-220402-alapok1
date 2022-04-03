@@ -1,4 +1,6 @@
 import os
+from PIL import Image
+from PIL import UnidentifiedImageError
 
 # r = raw string
 photo_folder = r"C:\Work\_PythonSuli\pycore-220402\photos"
@@ -33,4 +35,10 @@ for file_item in file_list:
 
     image_files.append(file_item)
 
-print(image_files)
+# step through all images and print their sizes
+for photo in image_files:
+    try:
+        img = Image.open(photo)
+        print(f"{photo} Size: {img.size}")
+    except UnidentifiedImageError:
+        print(f"WARNING: {photo} is not an image file :(")
