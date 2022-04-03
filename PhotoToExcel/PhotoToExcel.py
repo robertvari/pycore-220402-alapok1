@@ -60,4 +60,3 @@ for photo in image_files:
     except UnidentifiedImageError:
         print(f"WARNING: {photo} is not an image file :(")
 
-pass
