@@ -19,11 +19,18 @@ file_list = [os.path.join(photo_folder, file) for file in os.listdir(photo_folde
 #     new_file_list.append(os.path.join(photo_folder, file))
 
 # todo filter file list
-allowed_extensions = [".jpg"]
+allowed_extensions = [".jpg", ".jpeg", ".bmp"]
+image_files = []
 for file_item in file_list:
     # skip folders
     if os.path.isdir(file_item):
         continue
 
     # skip files if extension not in allowed_extensions
-    print(os.path.splitext(file_item))
+    filepath, extension = os.path.splitext(file_item)
+    if not extension.lower() in allowed_extensions:
+        continue
+
+    image_files.append(file_item)
+
+print(image_files)
