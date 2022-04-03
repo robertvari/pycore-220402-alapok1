@@ -60,4 +60,9 @@ for photo in image_files:
     except UnidentifiedImageError:
         print(f"WARNING: {photo} is not an image file :(")
 
-# save data to a file
+# todo save data to a .txt file
+
+# todo save data to a .json file
+
+# todo save data to an xlsx file
+
