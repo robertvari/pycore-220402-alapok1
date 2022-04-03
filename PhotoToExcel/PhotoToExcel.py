@@ -35,7 +35,7 @@ for file_item in file_list:
 
     image_files.append(file_item)
 
-# step through all images and print their sizes
+# get data from all photos and store them in dictionary
 photo_data = {}
 for photo in image_files:
     try:
@@ -60,3 +60,4 @@ for photo in image_files:
     except UnidentifiedImageError:
         print(f"WARNING: {photo} is not an image file :(")
 
+# save data to a file
