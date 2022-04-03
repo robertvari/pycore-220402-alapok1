@@ -1,6 +1,7 @@
-import os
+import os, json
 from PIL import Image, ExifTags
 from PIL import UnidentifiedImageError
+from openpyxl import Workbook
 
 # r = raw string
 photo_folder = r"C:\Work\_PythonSuli\pycore-220402\photos"
@@ -61,8 +62,20 @@ for photo in image_files:
         print(f"WARNING: {photo} is not an image file :(")
 
 # todo save data to a .txt file
+text_file_path = "photo_data.txt"
+with open(text_file_path, "w") as f:
+    f.write(str(photo_data))
 
 # todo save data to a .json file
+json_file_path = "photo_data.json"
+with open(json_file_path, "w") as f:
+    json.dump(photo_data, f)
+
+# load json back
+with open(json_file_path) as f:
+    data = json.load(f)
+    print(data['C:\\Work\\_PythonSuli\\pycore-220402\\photos\\IMG_1069.JPG'])
 
 # todo save data to an xlsx file
+xlsx_file_path = "photo_data.xlsx"
 
