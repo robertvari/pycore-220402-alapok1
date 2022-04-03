@@ -36,11 +36,20 @@ for file_item in file_list:
     image_files.append(file_item)
 
 # step through all images and print their sizes
+photo_data = {}
 for photo in image_files:
     try:
         img = Image.open(photo)
-        print(f"{photo} Size: {img.size}")
+        data = {
+            "size": img.size,
+            "date": None,
+            "camera": None,
+            "iso": None
+        }
 
+        photo_data[photo] = data
 
     except UnidentifiedImageError:
         print(f"WARNING: {photo} is not an image file :(")
+
+pass
